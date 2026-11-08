@@ -1,0 +1,85 @@
+import type { Car } from '../model/types';
+
+export const cars: Car[] = [
+  {
+    id: 1,
+    brand: 'BMW',
+    model: 'M4 Competition',
+    year: 2024,
+    price: 12500000,
+    mileage: 0,
+    engine: '3.0 л / 510 л.с.',
+    transmission: 'Автомат',
+    bodyType: 'Купе',
+    image:
+      'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=900',
+    isNew: true,
+  },
+  {
+    id: 2,
+    brand: 'Mercedes-Benz',
+    model: 'E-Class',
+    year: 2023,
+    price: 8900000,
+    mileage: 12000,
+    engine: '2.0 л / 258 л.с.',
+    transmission: 'Автомат',
+    bodyType: 'Седан',
+    image:
+      'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=900',
+  },
+  {
+    id: 3,
+    brand: 'Porsche',
+    model: '911 Carrera',
+    year: 2024,
+    price: 18900000,
+    mileage: 0,
+    engine: '3.0 л / 385 л.с.',
+    transmission: 'Робот',
+    bodyType: 'Купе',
+    image:
+      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900',
+    isNew: true,
+  },
+  {
+    id: 4,
+    brand: 'Audi',
+    model: 'RS Q8',
+    year: 2022,
+    price: 11500000,
+    mileage: 25000,
+    engine: '4.0 л / 600 л.с.',
+    transmission: 'Автомат',
+    bodyType: 'Внедорожник',
+    image:
+      'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=900',
+  },
+  {
+    id: 5,
+    brand: 'Tesla',
+    model: 'Model S',
+    year: 2023,
+    price: 9500000,
+    mileage: 8000,
+    engine: 'Электро / 670 л.с.',
+    transmission: 'Автомат',
+    bodyType: 'Седан',
+    image:
+      'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=900',
+  },
+  {
+    id: 6,
+    brand: 'BMW',
+    model: 'X5 M',
+    year: 2024,
+    price: 14200000,
+    mileage: 0,
+    engine: '4.4 л / 625 л.с.',
+    transmission: 'Автомат',
+    bodyType: 'Внедорожник',
+    image:
+      'https://images.unsplash.com/photo-1556189250-72ba954cfc2b?w=900',
+    isNew: true,
+  },
+];
