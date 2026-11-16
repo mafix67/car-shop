@@ -1,6 +1,6 @@
 import type { Car } from '../model/types';
 
-export const cars: Car[] = [
+export const mockCars: Car[] = [
   {
     id: 1,
     brand: 'BMW',
@@ -19,7 +19,7 @@ export const cars: Car[] = [
     id: 2,
     brand: 'Mercedes-Benz',
     model: 'E-Class',
-    year: 2023,
+    year: 2026,
     price: 8900000,
     mileage: 12000,
     engine: '2.0 л / 258 л.с.',
@@ -27,6 +27,7 @@ export const cars: Car[] = [
     bodyType: 'Седан',
     image:
       'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=900',
+      isNew: true
   },
   {
     id: 3,
@@ -54,6 +55,7 @@ export const cars: Car[] = [
     bodyType: 'Внедорожник',
     image:
       'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=900',
+      isNew: true,
   },
   {
     id: 5,
@@ -67,6 +69,7 @@ export const cars: Car[] = [
     bodyType: 'Седан',
     image:
       'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=900',
+      isNew: true,
   },
   {
     id: 6,

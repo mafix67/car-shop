@@ -8,6 +8,6 @@ export interface Car {
   engine: string;
   transmission: string;
   bodyType: string;
-  image: string;
-  isNew?: boolean;
+  image: string | null;
+  isNew: boolean;
 }

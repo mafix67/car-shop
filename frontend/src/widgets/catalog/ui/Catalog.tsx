@@ -1,108 +1,43 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getCars } from '@/entities/car/api/getCars';
+import type { Car } from '@/entities/car/model/types';
 
-import {
-  cars,
-  CarCard,
-} from '@/entities/car';
+function Catalog() {
+  const [cars, setCars] = useState<Car[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
-import {
-  SearchCars,
-  FilterCars,
-  type CarFilters,
-} from '@/features';
+  useEffect(() => {
+    getCars()
+      .then(setCars)
+      .catch(() => setError('Не удалось загрузить автомобили'))
+      .finally(() => setLoading(false));
+  }, []);
 
-import './Catalog.css';
-
-export const Catalog = () => {
-  const [search, setSearch] = useState('');
-
-  const [filters, setFilters] = useState<CarFilters>({
-    bodyType: 'Все',
-    maxPrice: 20000000,
-    sort: 'default',
-  });
-
-  const filteredCars = useMemo(() => {
-    let result = cars.filter((car) => {
-      const searchValue = search.toLowerCase();
-
-      const matchesSearch =
-        `${car.brand} ${car.model}`
-          .toLowerCase()
-          .includes(searchValue);
-
-      const matchesBody =
-        filters.bodyType === 'Все' ||
-        car.bodyType === filters.bodyType;
-
-      const matchesPrice =
-        car.price <= filters.maxPrice;
-
-      return matchesSearch && matchesBody && matchesPrice;
-    });
-
-    if (filters.sort === 'asc') {
-      result.sort((a, b) => a.price - b.price);
-    }
-
-    if (filters.sort === 'desc') {
-      result.sort((a, b) => b.price - a.price);
-    }
-
-    if (filters.sort === 'year') {
-      result.sort((a, b) => b.year - a.year);
-    }
-
-    return result;
-  }, [search, filters]);
+  if (loading) return <p>Загрузка автомобилей...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
-    <section className="catalog" id="catalog">
-      <div className="catalog__header">
-        <div>
-          <span className="catalog__subtitle">
-            НАШ АВТОПАРК
-          </span>
+    <div>
+      {cars.map((car) => (
+        <div key={car.id}>
+          <h3>{car.brand} {car.model}</h3>
+          <p>{car.year}</p>
+          <p>{car.price} ₽</p>
 
-          <h2>Каталог автомобилей</h2>
-
-          <p>
-            Выберите автомобиль своей мечты
-          </p>
-        </div>
-
-        <span className="catalog__count">
-          Найдено: {filteredCars.length}
-        </span>
-      </div>
-
-      <div className="catalog__filters">
-        <SearchCars
-          value={search}
-          onChange={setSearch}
-        />
-
-        <FilterCars
-          filters={filters}
-          onChange={setFilters}
-        />
-      </div>
-
-      <div className="catalog__grid">
-        {filteredCars.length > 0 ? (
-          filteredCars.map((car) => (
-            <CarCard
-              key={car.id}
-              car={car}
+          {car.image && (
+            <img
+              src={car.image.startsWith('http')
+                ? car.image
+                : `/media/${car.image.replace(/^\/?media\//, '')}`}
+              alt={`${car.brand} ${car.model}`}
+              width="250"
             />
-          ))
-        ) : (
-          <div className="catalog__empty">
-            <h3>Автомобили не найдены</h3>
-            <p>Попробуйте изменить параметры поиска</p>
-          </div>
-        )}
-      </div>
-    </section>
+          )}
+        </div>
+      ))}
+    </div>
   );
-};
+}
+
+export default Catalog;
