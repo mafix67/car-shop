@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getCars } from '@/entities/car/api/getCars';
 import type { Car } from '@/entities/car/model/types';
+import './Catalog.css'; 
 
 function Catalog() {
   const [cars, setCars] = useState<Car[]>([]);
@@ -18,7 +19,7 @@ function Catalog() {
   if (error) return <p>{error}</p>;
 
   return (
-    <div>
+    <div className='catalog'>
       {cars.map((car) => (
         <div key={car.id}>
           <h3>{car.brand} {car.model}</h3>
