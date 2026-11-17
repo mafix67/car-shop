@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Dynamic content</h2>
+
+<p>The catalog has the following record counts:</p>
+<ul>
+  <li><strong>Cars:</strong> {{ num_cars }}</li>
+
+</ul>
+
+<p>
+  You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{%
+  else %} times{% endif %}.
+</p>
+</body>
+</html>
