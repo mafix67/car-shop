@@ -2,6 +2,7 @@ import { ArrowRight, ShieldCheck, Wallet, Headphones } from 'lucide-react';
 
 import { Header } from '@/widgets/header';
 import { Catalog } from '@/widgets/catalog';
+
 import { Button } from '@/shared/ui';
 
 import './HomePage.css';

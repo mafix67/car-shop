@@ -14,8 +14,8 @@ export const Header = () => {
         </a>
 
         <nav className="header__nav">
-          <a href="#catalog">Каталог</a>
-          <a href="#advantages">Преимущества</a>
+          <a href="/catalog">Каталог</a>
+          <a href="/orders">Заказы</a>
           <a href="#contacts">Контакты</a>
         </nav>
 

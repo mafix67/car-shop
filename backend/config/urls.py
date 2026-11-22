@@ -11,6 +11,8 @@ urlpatterns = [
     path('api/', include('cars.urls')),
 
     path('', index, name='home'),
+
+    path('api/', include('orders.urls')),
 ]
 
 if settings.DEBUG:
